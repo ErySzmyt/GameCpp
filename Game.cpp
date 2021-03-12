@@ -14,6 +14,33 @@ struct Circle
 
 };
 
+
+
+	void inwersja(int *tablica)
+	{ 
+		tablica = new int[] { 4, 2, 7, 3, 9, 1, 8, 5 };
+		int i = 0;
+
+		int dlugosc = sizeof(tablica) / sizeof(int);
+
+		int j = dlugosc - 1;
+		int pomoc;
+
+		while (i < j) 
+		{
+			pomoc = tablica[i];
+			tablica[i] = tablica[j];
+			tablica[j] = pomoc;
+			i++;
+			j--;
+		}
+	}
+
+	
+		
+	
+
+
 struct Vector {
 	double dir_x;
 	double dir_y;
