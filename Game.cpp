@@ -4,68 +4,8 @@
 #include<cstdio>
 #include<iostream>
 #include<math.h>
+#include "Game.h";
 
-// <deklaracej stalych>
-const float DISP_WIDTH = 600;
-const float DISP_HEIGHT = 600;
-// </deklaracej stalych>
-
-// <deklaracje funkcji> 
-double losujKierunek();
-int losujPozycjeKola();
-int losujKatOdbicia();
-double wyliczCosinus();
-double przeliczCosNaKat();
-// </deklaracje funkcji> 
-
-// <structy>
-struct Circle
-{
-	Vector vector;
-
-	int pos_x;
-	int pos_y;
-};
-
-
-
-	void inwersja(int *tablica)
-	{ 
-		tablica = new int[] { 4, 2, 7, 3, 9, 1, 8, 5 };
-		int i = 0;
-
-		int dlugosc = sizeof(tablica) / sizeof(int);
-
-		int j = dlugosc - 1;
-		int pomoc;
-
-		while (i < j) 
-		{
-			pomoc = tablica[i];
-			tablica[i] = tablica[j];
-			tablica[j] = pomoc;
-			i++;
-			j--;
-		}
-	}
-
-	
-		
-	
-
-
-struct Vector {
-	double dir_x;
-	double dir_y;
-};
-
-Vector randVector() {
-	Vector temp = Vector();
-
-}
-// </structy>
-
-// <funkcje>
 bool detectColision(int x1, int y1, int x2, int y2)
 {
 	if (x1 < 0 || x2 > DISP_WIDTH)
@@ -94,19 +34,24 @@ int losujPozycjeKola()
 	return wynik = (rand() % max) + min;
 }
 
-int losujKatOdbicia()
+double przeliczCosNaKat()
 {
-	// losuje kat odbicia pilki od sciany od 1 do 179
-	const int min = 1;
-	const int max = 179;
-	int wynik;
-	return wynik = (rand() % max) + min;
+	return 0.0;
 }
 
 double wyliczCosinus(double x1,double x2,double y1, double y2) 
 {
 	double cosinus;
-	return cosinus = (x1 * x2) + (y1 * y2) / (sqrt((pow(x1, 2) + pow(y1, 2)) + sqrt((pow(x2, 2) + pow(y2, 2)));
+	return cosinus = (x1 * x2) + (y1 * y2) / (sqrt((pow(x1, 2) + pow(y1, 2)) + sqrt((pow(x2, 2) + pow(y2, 2)))));
+}
+
+
+Vector randVector() {
+	Vector temp = Vector();
+	temp.dir_x = losujKierunek();
+	temp.dir_y = losujKierunek();
+
+	return temp;
 }
 
 // </funkcje>
@@ -124,13 +69,7 @@ void main(void) {
 
 
 	int pos_x = DISP_WIDTH / 2;
-	int pos_y = DISP_HEIGHT / 2;
-
-
-
-	Vector direction = Vector();
-
-	
+	int pos_y = DISP_HEIGHT / 2;	
 
 
 
