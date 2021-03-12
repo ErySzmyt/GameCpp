@@ -59,6 +59,21 @@ double wyliczCosinus(Vector v1,Vector v2)
 }
 
 
+double reverseDirX(Vector v1)
+{
+	const float wart = 1 / 10;
+	double wyn = v1.dir_x * wart;
+	return -(v1.dir_x + wyn);
+}
+
+double reverseDirY(Vector v1)
+{
+	// zwraca zanegowy wektor
+	const float wart = 1 / 10;
+	double wyn = v1.dir_y * wart;
+	return -(v1.dir_y + wyn);
+}
+
 Vector randVector() {
 	Vector temp = Vector();
 	temp.dir_x = losujKierunek();
