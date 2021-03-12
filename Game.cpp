@@ -7,6 +7,8 @@
 const float DISP_WIDTH = 600;
 const float DISP_HEIGHT = 600;
 
+double losujKierunek();
+int losujPozycjeKola();
 
 struct Circle
 {
@@ -62,6 +64,21 @@ bool detectColision(int x1, int y1, int x2, int y2) {
 	return false;
 }
 
+double losujKierunek() {
+	// funkcja losuje  wartosci kierunku double 0-360
+	const int min = 0;
+	const int max = 360;
+	double los = (double)rand() / RAND_MAX;
+	return min + los * (max - min);
+}
+
+int losujPozycjeKola() {
+	// losuje pozycje kola wartosc pozycji int z przedzialu 1-599
+	const int min = 1;
+	const int max = 599;
+	int wynik;
+	return wynik = (rand() % max) + min;
+}
 void main(void) {
 	al_init();
 	al_init_primitives_addon();
