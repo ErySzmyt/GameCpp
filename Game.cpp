@@ -12,6 +12,8 @@ struct Circle
 {
 	Vector vector;
 
+	int pos_x;
+	int pos_y;
 };
 
 struct Vector {
