@@ -3,14 +3,22 @@
 #include <allegro5/allegro_primitives.h>
 #include<cstdio>
 #include<iostream>
+#include<math.h>
 
+// <deklaracej stalych>
 const float DISP_WIDTH = 600;
 const float DISP_HEIGHT = 600;
+// </deklaracej stalych>
 
+// <deklaracje funkcji> 
 double losujKierunek();
 int losujPozycjeKola();
 int losujKatOdbicia();
+double wyliczCosinus();
+double przeliczCosNaKat();
+// </deklaracje funkcji> 
 
+// <structy>
 struct Circle
 {
 	Vector vector;
@@ -55,8 +63,11 @@ Vector randVector() {
 	Vector temp = Vector();
 
 }
+// </structy>
 
-bool detectColision(int x1, int y1, int x2, int y2) {
+// <funkcje>
+bool detectColision(int x1, int y1, int x2, int y2)
+{
 	if (x1 < 0 || x2 > DISP_WIDTH)
 		return true;
 	if (y1 < 0 || y2 > DISP_HEIGHT)
@@ -65,7 +76,8 @@ bool detectColision(int x1, int y1, int x2, int y2) {
 	return false;
 }
 
-double losujKierunek() {
+double losujKierunek()
+{
 	// funkcja losuje  wartosci kierunku double 0-360
 	const int min = 0;
 	const int max = 360;
@@ -73,7 +85,8 @@ double losujKierunek() {
 	return min + los * (max - min);
 }
 
-int losujPozycjeKola() {
+int losujPozycjeKola()
+{
 	// losuje pozycje kola wartosc pozycji int z przedzialu 1-599
 	const int min = 1;
 	const int max = 599;
@@ -90,6 +103,13 @@ int losujKatOdbicia()
 	return wynik = (rand() % max) + min;
 }
 
+double wyliczCosinus(double x1,double x2,double y1, double y2) 
+{
+	double cosinus;
+	return cosinus = (x1 * x2) + (y1 * y2) / (sqrt((pow(x1, 2) + pow(y1, 2)) + sqrt((pow(x2, 2) + pow(y2, 2)));
+}
+
+// </funkcje>
 void main(void) {
 	al_init();
 	al_init_primitives_addon();
