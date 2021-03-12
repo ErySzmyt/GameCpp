@@ -1,10 +1,15 @@
-﻿#include<allegro5/allegro.h>													
+﻿#define _USE_MATH_DEFINES
+
+#include<allegro5/allegro.h>													
 #include<allegro5/allegro_font.h>	
 #include <allegro5/allegro_primitives.h>
 #include<cstdio>
 #include<iostream>
 #include<math.h>
 #include "Game.h";
+
+
+
 
 bool detectColision(int x1, int y1, int x2, int y2)
 {
@@ -39,10 +44,14 @@ double przeliczCosNaKat()
 	return 0.0;
 }
 
-double wyliczCosinus(double x1,double x2,double y1, double y2) 
+//double x1, double x2, double y1, double y2
+
+double wyliczCosinus(Vector v1,Vector v2)
 {
-	double cosinus;
-	return cosinus = (x1 * x2) + (y1 * y2) / (sqrt((pow(x1, 2) + pow(y1, 2)) + sqrt((pow(x2, 2) + pow(y2, 2)))));
+	double upper = ((v1.dir_x * v2.dir_x) + (v1.dir_y * v2.dir_y));
+	double lower = sqrt(pow(v1.dir_x,2)+ pow(v1.dir_y, 2))* sqrt(pow(v2.dir_x, 2) + pow(v2.dir_y, 2));
+
+	return std::cos(upper / lower)* M_PI;
 }
 
 
@@ -56,6 +65,19 @@ Vector randVector() {
 
 // </funkcje>
 void main(void) {
+	Vector top = Vector();
+	top.dir_x = 180;
+	top.dir_y = 0;
+
+
+	Vector customV = Vector();
+	customV.dir_x = 90;
+	customV.dir_y = 90;
+
+	std::cout << wyliczCosinus(top, customV);
+
+
+	/*
 	al_init();
 	al_init_primitives_addon();
 	al_install_keyboard();
@@ -93,8 +115,7 @@ void main(void) {
 		_sleep(40);
 
 	}
-
-
-
 	al_destroy_display(disp);
+
+	*/
 }

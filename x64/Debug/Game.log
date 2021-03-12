@@ -1,5 +1,4 @@
 ﻿  Game.cpp
-C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\Game.cpp(13,15): error C3646: "vector": nieznany specyfikator przesłonięcia
-C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\Game.cpp(13,15): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
-C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\Game.cpp(63,17): warning C4326: zwracany typ "main" powinien być "int" zamiast "void"
-C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\Game.cpp(104,3): error C4996: '_sleep': This function or variable has been superceded by newer library or operating system functionality. Consider using Sleep instead. See online help for details.
+F:\Github\GameCpp\Game.cpp(9,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+F:\Github\GameCpp\Game.cpp(67,17): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Game.vcxproj -> F:\Github\GameCpp\x64\Debug\Game.exe

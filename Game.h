@@ -1,5 +1,10 @@
 #pragma once
 // <structy>
+struct Vector {
+	double dir_x;
+	double dir_y;
+};
+
 struct Circle
 {
 	Vector vector;
@@ -8,11 +13,6 @@ struct Circle
 	int pos_y;
 };
 
-
-struct Vector {
-	double dir_x;
-	double dir_y;
-};
 
 // <deklaracej stalych>
 const float DISP_WIDTH = 600;
