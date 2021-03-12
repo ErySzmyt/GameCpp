@@ -11,13 +11,17 @@
 
 
 
-bool detectColision(int x1, int y1, int x2, int y2)
+bool detectCollisionVertically(int x1, int y1, int x2, int y2)
+{
+	if (y1 < 0 || y2 > DISP_HEIGHT)
+		return true;
+	return false;
+}
+
+bool detectCollisionHorisontally(int x1, int y1, int x2, int y2)
 {
 	if (x1 < 0 || x2 > DISP_WIDTH)
 		return true;
-	if (y1 < 0 || y2 > DISP_HEIGHT)
-		return true;
-
 	return false;
 }
 
@@ -51,7 +55,7 @@ double wyliczCosinus(Vector v1,Vector v2)
 	double upper = ((v1.dir_x * v2.dir_x) + (v1.dir_y * v2.dir_y));
 	double lower = sqrt(pow(v1.dir_x,2)+ pow(v1.dir_y, 2))* sqrt(pow(v2.dir_x, 2) + pow(v2.dir_y, 2));
 
-	return std::cos(upper / lower)* M_PI;
+	return cos(upper / lower);
 }
 
 
@@ -66,13 +70,13 @@ Vector randVector() {
 // </funkcje>
 void main(void) {
 	Vector top = Vector();
-	top.dir_x = 180;
-	top.dir_y = 0;
+	top.dir_x = 4;
+	top.dir_y = 3;
 
 
 	Vector customV = Vector();
-	customV.dir_x = 90;
-	customV.dir_y = 90;
+	customV.dir_x = 2;
+	customV.dir_y = 5;
 
 	std::cout << wyliczCosinus(top, customV);
 
