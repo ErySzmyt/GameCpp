@@ -12,8 +12,6 @@
 #include "Game.h";
 
 
-
-
 bool detectCollisionVertically(int x1, int y1, int x2, int y2)
 {
 	if (y1 < 0 || y2 > DISP_HEIGHT)
@@ -44,20 +42,6 @@ int losujPozycjeKola()
 	const int max = 599;
 	int wynik;
 	return wynik = (rand() % max) + min;
-}
-
-double przeliczCosNaKat()
-{
-	return 0.0;
-}
-
-//double x1, double x2, double y1, double y2
-double wyliczCosinus(Vector v1,Vector v2)
-{
-	double upper = ((v1.dir_x * v2.dir_x) + (v1.dir_y * v2.dir_y));
-	double lower = sqrt(pow(v1.dir_x,2)+ pow(v1.dir_y, 2))* sqrt(pow(v2.dir_x, 2) + pow(v2.dir_y, 2));
-
-	return cos(upper / lower);
 }
 
 void reverseDirX(Vector& v1)
@@ -105,8 +89,8 @@ int main() {
 	bool running = true;
 
 	Circle circle = Circle();
-	circle.pos_x = DISP_WIDTH / 2;
-	circle.pos_y = DISP_HEIGHT / 2;
+	circle.pos_x = losujPozycjeKola();
+	circle.pos_y = losujPozycjeKola();
 	circle.vector = randVector();
 
 	// Main loop
