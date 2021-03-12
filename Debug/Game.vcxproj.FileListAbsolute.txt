@@ -1,2 +1,0 @@
-F:\Github\GameCpp\Game\Debug\Game.exe
-F:\Github\GameCpp\Game\Debug\Game.pdb
