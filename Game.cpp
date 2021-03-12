@@ -9,6 +9,7 @@ const float DISP_HEIGHT = 600;
 
 double losujKierunek();
 int losujPozycjeKola();
+int losujKatOdbicia();
 
 struct Circle
 {
@@ -79,6 +80,16 @@ int losujPozycjeKola() {
 	int wynik;
 	return wynik = (rand() % max) + min;
 }
+
+int losujKatOdbicia()
+{
+	// losuje kat odbicia pilki od sciany od 1 do 179
+	const int min = 1;
+	const int max = 179;
+	int wynik;
+	return wynik = (rand() % max) + min;
+}
+
 void main(void) {
 	al_init();
 	al_init_primitives_addon();
