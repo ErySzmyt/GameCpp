@@ -46,15 +46,16 @@ int losujPozycjeKola()
 
 void reverseDirX(Vector& v1)
 {
-	double wyn = v1.dir_x + (rand() % 3);
-	v1.dir_x = -(v1.dir_x + wyn);
+	double wyn = (int)(v1.dir_x +(rand() % 3)) % 5;
+	v1.dir_x = -(wyn);
 }
 
 void reverseDirY(Vector& v1)
 {
 	// zwraca zanegowy wektor
-	double wyn = v1.dir_y + (rand() % 3);
-	v1.dir_y = -(v1.dir_y + wyn);
+	double wyn = (int)(v1.dir_y +(rand() % 3))%5;
+
+	v1.dir_y = -(wyn);
 }
 
 Vector randVector() {
