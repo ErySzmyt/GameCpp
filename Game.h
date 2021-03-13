@@ -20,10 +20,9 @@ const float DISP_HEIGHT = 600;
 // </deklaracej stalych>
 
 // <deklaracje funkcji> 
-double losujKierunek();
+Circle generateCircle();
+double randDouble(const int min, const int max);
 int losujPozycjeKola();
-double wyliczCosinus();
-double przeliczCosNaKat();
 Vector randVector();
 // </deklaracje funkcji> 
 

@@ -26,11 +26,9 @@ bool detectCollisionHorisontally(int x1, int y1, int x2, int y2)
 	return false;
 }
 
-double losujKierunek()
+double randDouble(const int min, const int max)
 {
-	// funkcja losuje  wartosci kierunku double 0-360
-	const int min = 0;
-	const int max = 10;
+	// funkcja losuje  wartosci
 	double los = (double)rand() / RAND_MAX;
 	return min + los * (max - min);
 }
@@ -44,24 +42,27 @@ int losujPozycjeKola()
 	return wynik = (rand() % max) + min;
 }
 
-void reverseDirX(Vector& v1)
-{
-	double wyn = (int)(v1.dir_x +(rand() % 3)) % 5;
-	v1.dir_x = -(wyn);
+void reverseDirX(Vector& v1) {
+	v1.dir_x = -(v1.dir_x + randDouble(0, 2));
 }
 
-void reverseDirY(Vector& v1)
-{
-	// zwraca zanegowy wektor
-	double wyn = (int)(v1.dir_y +(rand() % 3))%5;
+void reverseDirY(Vector& v1) {
+	v1.dir_y = -(v1.dir_y + randDouble(0, 2));
+}
 
-	v1.dir_y = -(wyn);
+Circle generateCircle() { 
+	Circle circle = Circle();
+	circle.pos_x = losujPozycjeKola();
+	circle.pos_y = losujPozycjeKola();
+	circle.vector = randVector();
+
+	return circle;
 }
 
 Vector randVector() {
 	Vector temp = Vector();
-	temp.dir_x = 4;
-	temp.dir_y = 4;
+	temp.dir_x = 20;
+	temp.dir_y = 20;
 
 	return temp;
 }
@@ -89,10 +90,7 @@ int main() {
 
 	bool running = true;
 
-	Circle circle = Circle();
-	circle.pos_x = losujPozycjeKola();
-	circle.pos_y = losujPozycjeKola();
-	circle.vector = randVector();
+	Circle circle = generateCircle();
 
 	// Main loop
 	while (running) {
