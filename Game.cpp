@@ -26,6 +26,15 @@ bool detectCollisionHorisontally(int x1, int y1, int x2, int y2)
 	return false;
 }
 
+bool checkClickAndPos(const int x, const int x, int r, const int cl_x, int cl_y)
+{
+	double dl_wektora = abs(sqrt((pow(cl_x - x, 2) + pow(cl_y - y, 2))));
+	if (dl_wektora <= r)
+		return true;
+	return false;
+
+}
+
 double randDouble(const int min, const int max)
 {
 	// funkcja losuje  wartosci
