@@ -36,8 +36,8 @@ double randDouble(const int min, const int max)
 int losujPozycjeKola()
 {
 	// losuje pozycje kola wartosc pozycji int z przedzialu 1-599
-	const int min = 1;
-	const int max = 599;
+	const int min = 31;
+	const int max = 569;
 	int wynik;
 	return wynik = (rand() % max) + min;
 }
