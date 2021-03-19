@@ -68,7 +68,8 @@ Vector randVector() {
 }
 
 void drawCircle(Circle circle) {
-	al_draw_filled_rectangle(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30, al_map_rgb(0, 0, 255));
+	//al_draw_filled_rectangle(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30, al_map_rgb(0, 0, 255));
+	al_draw_filled_circle(circle.pos_x + 15, circle.pos_y + 15, 15, al_map_rgb(0, 0, 255));
 }
 
 // </funkcje>
@@ -101,12 +102,12 @@ int main() {
 		circle.pos_x += circle.vector.dir_x;
 		circle.pos_y += circle.vector.dir_y;
 
-		if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x+30, circle.pos_y+30)) {
+		if (detectCollisionVertically(circle.pos_x-15, circle.pos_y - 15, circle.pos_x + 30, circle.pos_y + 30)) {
 			reverseDirY(circle.vector);
 		}
 
 
-		if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
+		if (detectCollisionHorisontally(circle.pos_x - 15, circle.pos_y - 15, circle.pos_x + 30, circle.pos_y + 30)) {
 			reverseDirX(circle.vector);
 		}
 		
