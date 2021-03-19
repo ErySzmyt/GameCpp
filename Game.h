@@ -23,6 +23,7 @@ const float DISP_HEIGHT = 600;
 Circle generateCircle();
 double randDouble(const int min, const int max);
 int losujPozycjeKola();
+bool checkClickAndPos();
 Vector randVector();
 // </deklaracje funkcji> 
 
