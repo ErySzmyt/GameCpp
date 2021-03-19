@@ -80,6 +80,7 @@ int main() {
 	al_init();
 	al_init_primitives_addon();
 	al_install_keyboard();
+	al_install_mouse();
 
 	ALLEGRO_DISPLAY* disp = al_create_display(DISP_WIDTH, DISP_HEIGHT);
 	ALLEGRO_EVENT_QUEUE* event_queue = al_create_event_queue();
@@ -88,6 +89,7 @@ int main() {
 
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 
+	ALLEGRO_MOUSE_STATE state;
 
 	bool running = true;
 
@@ -98,18 +100,33 @@ int main() {
 		//ALLEGRO_EVENT ev;
 		//std::cout << "ddd";
 		//al_wait_for_event(event_queue, &ev);
+		
 
-		circle.pos_x += circle.vector.dir_x;
-		circle.pos_y += circle.vector.dir_y;
+		al_get_mouse_state(&state);
+		
 
-		if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
-			reverseDirY(circle.vector);
+		if (al_mouse_button_down(&state, 1)) {
+			std::cout << " Bonk " << state.x << " " << state.y << std::endl;
+
+			if (true)
+			{
+
+			}
+
+
 		}
 
+			circle.pos_x += circle.vector.dir_x;
+			circle.pos_y += circle.vector.dir_y;
 
-		if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
-			reverseDirX(circle.vector);
-		}
+			if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
+				reverseDirY(circle.vector);
+			}
+
+
+			if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
+				reverseDirX(circle.vector);
+			}
 		
 
 
