@@ -26,7 +26,7 @@ bool detectCollisionHorisontally(int x1, int y1, int x2, int y2)
 	return false;
 }
 
-bool checkClickAndPos(const int x, const int x, int r, const int cl_x, int cl_y)
+bool checkClickAndPos(const int x, const int y, int r, const int cl_x, int cl_y)
 {
 	double dl_wektora = abs(sqrt((pow(cl_x - x, 2) + pow(cl_y - y, 2))));
 	if (dl_wektora <= r)
@@ -110,34 +110,35 @@ int main() {
 		//std::cout << "ddd";
 		//al_wait_for_event(event_queue, &ev);
 		
-
 		al_get_mouse_state(&state);
-		
 
 		if (al_mouse_button_down(&state, 1)) {
-			std::cout << " Bonk " << state.x << " " << state.y << std::endl;
 
-			if (true)
-			{
+			if (checkClickAndPos(circle.pos_x, circle.pos_y, 30, state.x, state.y)) {
+				std::cout << " Leganco " << state.x << " " << state.y << std::endl;
+				cl_hits++;
 
+				circle.vector.multiply(1.5);
 			}
+			else {
+				std::cout << " Bonk " << state.x << " " << state.y << std::endl;
+				cl_misses++;
 
-
+				circle.vector.multiply(0.9);
+			}
 		}
 
-			circle.pos_x += circle.vector.dir_x;
-			circle.pos_y += circle.vector.dir_y;
+		circle.pos_x += circle.vector.dir_x;
+		circle.pos_y += circle.vector.dir_y;
 
-			if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
-				reverseDirY(circle.vector);
-			}
+		if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
+			reverseDirY(circle.vector);
+		}
 
 
-			if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
-				reverseDirX(circle.vector);
-			}
-		
-
+		if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
+			reverseDirX(circle.vector);
+		}
 
 		//drawCircle(circle);
 		drawCircle(circle);
@@ -147,9 +148,6 @@ int main() {
 		al_clear_to_color(al_map_rgb(0, 0, 0));
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
 	}
 	al_destroy_display(disp);
-
-	
 }

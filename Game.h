@@ -3,6 +3,12 @@
 struct Vector {
 	double dir_x;
 	double dir_y;
+
+public: 
+	void multiply(float mult) {
+		this->dir_x *= mult;
+		this->dir_y *= mult;
+	}
 };
 
 struct Circle
@@ -23,7 +29,10 @@ const float DISP_HEIGHT = 600;
 Circle generateCircle();
 double randDouble(const int min, const int max);
 int losujPozycjeKola();
-bool checkClickAndPos();
 Vector randVector();
-// </deklaracje funkcji> 
+// </deklaracje funkcji>
+
+int cl_hits = 0;
+int cl_misses = 0;
+
 
