@@ -61,8 +61,8 @@ Circle generateCircle() {
 
 Vector randVector() {
 	Vector temp = Vector();
-	temp.dir_x = 20;
-	temp.dir_y = 20;
+	temp.dir_x = randDouble(0, 10);
+	temp.dir_y = randDouble(0, 10);
 
 	return temp;
 }
@@ -102,12 +102,12 @@ int main() {
 		circle.pos_x += circle.vector.dir_x;
 		circle.pos_y += circle.vector.dir_y;
 
-		if (detectCollisionVertically(circle.pos_x-15, circle.pos_y - 15, circle.pos_x + 30, circle.pos_y + 30)) {
+		if (detectCollisionVertically(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
 			reverseDirY(circle.vector);
 		}
 
 
-		if (detectCollisionHorisontally(circle.pos_x - 15, circle.pos_y - 15, circle.pos_x + 30, circle.pos_y + 30)) {
+		if (detectCollisionHorisontally(circle.pos_x, circle.pos_y, circle.pos_x + 30, circle.pos_y + 30)) {
 			reverseDirX(circle.vector);
 		}
 		
