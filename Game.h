@@ -1,14 +1,13 @@
+
 #pragma once
+#include<allegro5/allegro.h>
 // <structy>
 struct Vector {
 	double dir_x;
 	double dir_y;
 
 public: 
-	void multiply(float mult) {
-		this->dir_x *= mult;
-		this->dir_y *= mult;
-	}
+	void multiply(float mult);
 };
 
 struct Circle
@@ -17,8 +16,12 @@ struct Circle
 
 	int pos_x;
 	int pos_y;
-};
 
+	ALLEGRO_COLOR color = al_map_rgb(255, 255, 255);
+
+	void setRandomColor();
+
+};
 
 // <deklaracej stalych>
 const float DISP_WIDTH = 600;

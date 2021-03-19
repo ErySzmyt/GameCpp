@@ -1,2 +1,4 @@
 F:\Github\GameCpp\x64\Debug\Game.exe
 F:\Github\GameCpp\x64\Debug\Game.pdb
+C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\x64\Debug\Game.exe
+C:\Users\klucz\OneDrive\Pulpit\Stasiu\Politechnika Śląska\II semestr\PK_Kolko\GameCpp\x64\Debug\Game.pdb
